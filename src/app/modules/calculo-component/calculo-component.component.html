@@ -2,14 +2,19 @@
 
     <div class="abs-center">
         <form [formGroup]="formnum" (ngSubmit)="calcularSerie()">
+            <p>
+                Este componente calcula la serie:
+            </p>
+            <img src="../assets/Screensho100.png" class="img-fluid" alt="Responsive image">
+
             <p>Número a calcular:
                 <input type="number" formControlName="numero" pattern="[0-9]{1,2}" (keypress)="validateFormat($event)"
                     required>
                 <span *ngIf="this.formnum.get('numero')?.errors?.['required']">
-                    (El nombre no puede quedar vacío)
+                    (El número no puede quedar vacío)
                 </span>
                 <span *ngIf="this.formnum.get('numero')?.errors?.['max']">
-                    (Debe tener como mínimo 10 caracteres)
+                    (Debe tener como mínimo 100)
                 </span>
             </p>
             <button type="button"  (click)="calcularSerie()" class="btn btn-primary">Calcular</button>
