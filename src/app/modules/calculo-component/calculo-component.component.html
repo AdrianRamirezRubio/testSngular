@@ -1,0 +1,24 @@
+<div class="container">
+
+    <div class="abs-center">
+        <form [formGroup]="formnum" (ngSubmit)="calcularSerie()">
+            <p>Número a calcular:
+                <input type="number" formControlName="numero" pattern="[0-9]{1,2}" (keypress)="validateFormat($event)"
+                    required>
+                <span *ngIf="this.formnum.get('numero')?.errors?.['required']">
+                    (El nombre no puede quedar vacío)
+                </span>
+                <span *ngIf="this.formnum.get('numero')?.errors?.['max']">
+                    (Debe tener como mínimo 10 caracteres)
+                </span>
+            </p>
+            <button type="button"  (click)="calcularSerie()" class="btn btn-primary">Calcular</button>
+        </form>
+        
+    </div>
+    <div class="card">
+        <div class="card-body">
+            Resultado:{{resultado}}
+        </div>
+      </div>
+</div>
